@@ -753,6 +753,8 @@ export class Avatar extends Group {
         this.morpher( 'eyebrow', name, v);
         this.morpher( 'tear', name, v);
         this.morpher( 'mouth', name, v);
+        this.morpher( 'socks', name, v);
+        this.morpher( 'logo', name, v);
         this.morpher( 'body', name, v);
         this.morpher( 'Head', name, v);
         this.morpher( 'body_low', name, v);

@@ -42,6 +42,7 @@ export const Human = {
     haveMorph:true,
     morphNormal:false,
     morphRelative:false,
+    morphMesh: ['body','Head','body_low','logo','socks','eyelash', 'eyebrow', 'tear','mouth'],
 
     haveLOD:true,
     anisotropy:'max',
@@ -60,7 +61,7 @@ export const Human = {
 	texturePath: 'assets/textures/avatar_',
 	textures: [
         'avatar_c.jpg', 'avatar_n.jpg', 'avatar_t.jpg','avatar_r.jpg','avatar_m.jpg',  'avatar_u.jpg',
-        'mouth_c.jpg', 'mouth_a.jpg', 'mouth_n.jpg', 
+        'mouth_c.jpg', 'mouth_a.jpg', 'mouth_n.jpg', 'logo.png', 
         'eye_c.jpg', 'eye_n.jpg', 'hair.jpg', 'hair_a.jpg',
         'eyelash_c.jpg', 'eyelash_a.jpg', 'eyelash_n.jpg',
         'hair_man.jpg', 'hair_man_a.jpg', 'avatar_ao.jpg',
@@ -114,7 +115,7 @@ export const Human = {
             aoMap:'avatar_ao',
             aoMapIntensity:1.0,
 
-            ior:1.5,
+            //ior:1.5,
             vertexColors:false,
 
             sssMap:'avatar_t',
@@ -269,6 +270,16 @@ export const Human = {
             thickness:0.0002,
             transmission:1,
         },
+
+        logo:{
+            type:'Standard',
+            map:'logo',
+            roughness:0.2,
+            metalness:0.6,
+            alphaToCoverage:true,
+            premultipliedAlpha:true,
+            transparent:true,
+        },
         low:{
             type:'Basic',
         	//color:0x000000,
@@ -336,6 +347,18 @@ export const Human = {
                     node.material = def;
                     node.receiveShadow = true;
                     node.castShadow = true;
+                    node.visible = startHigh
+                    break;
+                    case 'socks':
+                    node.material = def;
+                    node.receiveShadow = true;
+                    node.castShadow = false;
+                    node.visible = startHigh
+                    break;
+                    case 'logo':
+                    node.material = Pool.getMaterial( 'logo' );
+                    node.receiveShadow = true;
+                    node.castShadow = false;
                     node.visible = startHigh
                     break;
                     case 'body_low': 
