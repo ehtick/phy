@@ -264,8 +264,6 @@ export class Avatar extends Group {
 
         if( !this.done ) return;
 
-
-
         if ( this.mixer ){
 
             this.mixer.update( delta );

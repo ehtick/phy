@@ -1,4 +1,5 @@
 import * as THREE from 'three'
+import * as THREE2 from 'three/webgpu'
 import * as TWEEN from './libs/tween.esm.js'
 import * as UIL from './libs/uil.module.js'
 
@@ -301,6 +302,8 @@ export const Main = {
 
 
 		Motor.init( o );
+
+		
 	
 	},
 
@@ -459,7 +462,7 @@ window.TWEEN = TWEEN;
 window.VertexNormalsHelper = VertexNormalsHelper
 window.VertexTangentsHelper = VertexTangentsHelper
 
-const init = () => {
+const init = async () => {
 
 	isWebGPU = Main.webgpu;
 	// ? WebGPU.isAvailable() : false
@@ -492,9 +495,10 @@ const init = () => {
 	// RENDERER
 
 	if( isWebGPU ){
-	    renderer = new THREE.WebGPURenderer({ 
+	    renderer = new THREE2.WebGPURenderer({ 
 	    	antialias:antialias, 
 	    })
+	    await renderer.init();
 	} else {
 		renderer = new THREE.WebGLRenderer({ 
 			antialias:antialias, 
@@ -1096,11 +1100,13 @@ const doResize = () => {
 //   RENDER
 //--------------------
 
-const renderGPU = async ( stamp = 0 ) => {
+const renderGPU = ( stamp = 0 ) => {
 
 	update( stamp );
 
-	await renderer.renderAsync( scene, camera );
+	renderer.render( scene, camera );
+
+	//await renderer.renderAsync( scene, camera );
 
 	loop = requestAnimationFrame( renderGPU );
 

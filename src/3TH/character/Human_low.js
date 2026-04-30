@@ -21,9 +21,9 @@ export const Human_low = {
 
 	//haveQuality: true,
     //textureQuality:0,
-    textureRef:'avatar_c_0k',
-    texturePath: 'assets/textures/avatar/',
-    textures: ['avatar_c_0k.jpg', 'avatar_n_0k.jpg', 'avatar_ao_0k.jpg', 'hair_man_a_0k.jpg', 'Hair_01_c.png', 'Hair_01_n.png'],
+    textureRef:'avatar_c',
+    texturePath: 'assets/textures/avatar_1k/',
+    textures: ['avatar_c.jpg', 'avatar_n.jpg', 'avatar_arm.jpg', 'hair_man_a.jpg', 'hair.jpg', 'hair_a.jpg'],
 
     modelPath: 'assets/models/avatar/',
     forceModel: null,
@@ -33,23 +33,17 @@ export const Human_low = {
     materialRef:'skin_low',
     materials:{
         skin_low:{
-            //color:0xE24C00,
-            type:'Standard',//Physical',
-            map: 'avatar_c_0k',
-            aoMap:'avatar_ao_0k',
-            normalMap: 'avatar_n_0k',
+            type:'Standard',
+            map: 'avatar_c',
+            aoMap:'avatar_arm',
+            metalnessMap:'avatar_arm',
+            roughnessMap:'avatar_arm',
+            normalMap: 'avatar_n',
 
             normalScale: new Vector2( setting.normal, -setting.normal),
-            //normalMapType: ObjectSpaceNormalMap,
-            envMapIntensity:0.3,
-            roughness:0.22,
-            metalness:0.0,
-            //reflectivity:0.05,
+            roughness:1.0,
+            metalness:1.0,
             vertexColors:false,
-            /*sheen:1.0,
-            sheenColor:0x692000,
-            sheenRoughness:0.5,**/
-            //side:DoubleSide,
             
             
         },
@@ -57,7 +51,7 @@ export const Human_low = {
             //color:0xE24C00,
             type:'Standard',
             color:setting.hair,
-            alphaMap: 'hair_man_a_0k',
+           // alphaMap: 'hair_man_a',
             transparent:true,
             //blending:CustomBlending,
             //blendDst:ZeroFactor,
@@ -69,8 +63,8 @@ export const Human_low = {
             //color:0xE24C00,
             type:'Standard',
             color:setting.hair,
-            map:'Hair_01_c',
-            normalMap: 'Hair_01_n'
+           // map:'hair',
+            //normalMap: 'hair_a'
         },
 
     },

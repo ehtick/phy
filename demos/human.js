@@ -190,8 +190,11 @@ const Character = ( num = 1 ) => {
 
     let text = 'hello my name is ' + (gender[g] === 'man' ? 'bob': 'dianna')
     speech = phy.addSpeech( text );
-    speech.initInterface();
+    speech.initInterface(gender[g]);
     speech.dispatch = (seq, time)=>{ player.model.speak( seq, time); } 
+
+    speech.content.style.left = '40px'
+    speech.content.style.bottom = '410px'
 
 }
 
@@ -200,6 +203,7 @@ const Character = ( num = 1 ) => {
 const addGui = () => {
 
     gui = phy.gui();
+    //gui.add( 'string', { name:'String', value:'welcome to uil', h:200, p:0 });
     gui.add( option, 'faceMorph',{ rename:'FACE morph', type:'pad', name:'type', min:-1, max:1, w:120 }).listen().onChange( faceMorph );
     gui.add( option, 'bodyMorph',{ rename:'BODY morph',type:'pad', name:'type', min:-1, max:1, w:120 }).listen().onChange( bodyMorph );
     gui.add( option, 'realSize',{ rename:'SIZE', min:1.0, max:2.0, mode:1}).listen().onChange( resize )

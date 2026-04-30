@@ -60,11 +60,11 @@ export const Human = {
 	textureRef:'avatar_c',
 	texturePath: 'assets/textures/avatar_',
 	textures: [
-        'avatar_c.jpg', 'avatar_n.jpg', 'avatar_t.jpg','avatar_r.jpg','avatar_m.jpg',  'avatar_u.jpg',
+        'avatar_c.jpg', 'avatar_n.jpg', 'avatar_t.jpg','avatar_arm.jpg', 'avatar_u.jpg',
         'mouth_c.jpg', 'mouth_a.jpg', 'mouth_n.jpg', 'logo.png', 
         'eye_c.jpg', 'eye_n.jpg', 'hair.jpg', 'hair_a.jpg',
         'eyelash_c.jpg', 'eyelash_a.jpg', 'eyelash_n.jpg',
-        'hair_man.jpg', 'hair_man_a.jpg', 'avatar_ao.jpg',
+        'hair_man.jpg', 'hair_man_a.jpg', 
     ],
 
     modelPath: 'assets/models/avatar/',
@@ -91,8 +91,8 @@ export const Human = {
             
             roughness:1,
             metalness:1,
-            metalnessMap:'avatar_m',
-            roughnessMap:'avatar_r',
+            metalnessMap:'avatar_arm',
+            roughnessMap:'avatar_arm',
 
             normalScale: new Vector2( setting.normal, -setting.normal ),
             sheenColor:0xFFFFFF, //4A1B00,
@@ -112,7 +112,7 @@ export const Human = {
             iridescence:0.1,*/
             wireframe:setting.wireframe,
 
-            aoMap:'avatar_ao',
+            aoMap:'avatar_arm',
             aoMapIntensity:1.0,
 
             //ior:1.5,

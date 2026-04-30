@@ -25,7 +25,7 @@ demo = () => {
     phy.view({
         phi:12, theta:0, distance:5, x:0, y:3, z:15, fov:55, 
         envmap:'night', exposure:0.25, fog:true, fogExp:0.05,
-        reflect:0.1, groundColor:0x505050,
+        reflect:0, groundColor:0x505050,
     })
 
     //phy.lightIntensity( 6, 0, 0.7 );
